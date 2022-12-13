@@ -21,42 +21,7 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 
-/*// Geometry
-const particlesGeometry = new THREE.BufferGeometry()
-const count = 500
-const positions = new Float32Array(count * 3) // Multiply by 3 because each position is composed of 3 values (x, y, z)
 
-for(let i = 0; i < count * 3; i++) // Multiply by 3 for same reason
-{
-    positions[i] = (Math.random() - 0.5) * 10 // Math.random() - 0.5 to have a random value between -0.5 and +0.5
-    scene.add(particles)
-}
-
-particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3)) */
-
-// Create the Three.js BufferAttribute and specify that each information is composed of 3 values
-
-// Models
-
-// const gltfLoader = new GLTFLoader()
-// gltfLoader.load(
-//     '/models/Duck/glTF/Duck.gltf',
-//     (gltf) =>{
-//         scene.add(gltf.scene.children[0])
-//     }
-// )
-
-function dumpObject(obj, lines = [], isLast = true, prefix = '') {
-    const localPrefix = isLast ? '└─' : '├─';
-    lines.push(`${prefix}${prefix ? localPrefix : ''}${obj.name || '*no-name*'} [${obj.type}]`);
-    const newPrefix = prefix + (isLast ? '  ' : '│ ');
-    const lastNdx = obj.children.length - 1;
-    obj.children.forEach((child, ndx) => {
-      const isLast = ndx === lastNdx;
-      dumpObject(child, lines, isLast, newPrefix);
-    });
-    return lines;
-  }
 
 /**
  * Models
@@ -214,15 +179,10 @@ const tick = () =>
     // const elapsedTime = clock.getElapsedTime()
     
 
-    //rotation
     const elapsedTime = clock.getElapsedTime()
     const deltaTime = elapsedTime - previousTime
     previousTime = elapsedTime
 
-// for (gltf1)
-//     {
-        // gltf1.rotation.x += deltaTime * 0.1
-        //   spidey.rotation.y += deltaTime * 0.12
         
     
 
